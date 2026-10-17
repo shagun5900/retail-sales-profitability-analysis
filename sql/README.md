@@ -1,6 +1,6 @@
 # SQL Analysis
 
-SQL scripts will be added after inspecting the actual source schema and choosing a suitable database or SQL engine.
+SQL scripts will be added after inspecting the actual source schema and selecting a suitable database or SQL engine.
 
 ## Planned analyses
 
@@ -12,7 +12,7 @@ SQL scripts will be added after inspecting the actual source schema and choosing
 
 ## Standards
 
-- Use explicit column names rather than `SELECT *` in final analytical queries.
+- Use explicit column names in final analytical queries.
 - Comment on business logic and assumptions.
 - Handle nulls and division by zero deliberately.
 - Validate totals against source data and Power BI.

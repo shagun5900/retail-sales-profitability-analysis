@@ -1,12 +1,12 @@
 # Power BI Report
 
-The Power BI report will be added after the source data has been inspected and the model has been validated.
+The Power BI report will be added after the source data has been inspected and the model validated.
 
 ## Planned deliverables
 
-- `retail-sales-profitability-analysis.pbix` — Power BI Desktop report (to be created)
-- Screenshots of each report page in `../screenshots/`
-- Documented KPI definitions and model relationships in the main README or supporting documentation
+- `retail-sales-profitability-analysis.pbix` — Power BI Desktop report
+- Screenshots of report pages in `../screenshots/`
+- Documented KPI definitions and model relationships
 
 ## Build checklist
 
@@ -19,4 +19,4 @@ The Power BI report will be added after the source data has been inspected and t
 - [ ] Reconcile KPI values against source calculations.
 - [ ] Save and reopen the PBIX to confirm it works.
 
-A PBIX file is a binary Power BI Desktop artifact and cannot be authored or validated merely by committing a README. The actual report will be created and checked in Power BI Desktop.
+The PBIX report itself must be built and checked in Power BI Desktop; a repository commit alone cannot validate the report.

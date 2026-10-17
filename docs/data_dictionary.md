@@ -2,11 +2,11 @@
 
 **Status:** To be completed after inspecting the downloaded source files.
 
-For every source table, document the fields using the following template.
+For each source table, document fields using this template.
 
 | Table | Column | Data type | Definition | Key / relationship | Nulls or quality notes |
 |---|---|---|---|---|---|
-| To be inspected | To be inspected | To be inspected | To be confirmed from source | To be confirmed | To be profiled |
+| To inspect | To inspect | To inspect | Confirm from source | To test | To profile |
 
 ## Data profiling checklist
 
@@ -15,7 +15,7 @@ For every source table, document the fields using the following template.
 - [ ] Identify candidate primary keys and test uniqueness.
 - [ ] Identify foreign keys and verify unmatched records.
 - [ ] Inspect nulls, duplicates, invalid values, and inconsistent categories.
-- [ ] Confirm date coverage and currency/units.
-- [ ] Record cleaning decisions and their rationale.
+- [ ] Confirm date coverage, currency, and units.
+- [ ] Record cleaning decisions and rationale.
 
-Do not infer field definitions solely from column names; confirm them against the source documentation and sample values.
+Do not infer field definitions solely from column names; check the source documentation and sample values.

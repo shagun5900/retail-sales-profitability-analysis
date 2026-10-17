@@ -7,4 +7,4 @@ Suggested filenames:
 - `product-profitability.png`
 - `market-time-analysis.png`
 
-Do not add mock screenshots as if they were results from the actual dataset. Remove sensitive information, and make sure screenshots are readable at normal zoom.
+Do not add mock screenshots as if they were results from the actual dataset. Ensure screenshots are readable and contain no sensitive information.
