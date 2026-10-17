@@ -1,95 +1,90 @@
 # Retail Sales & Profitability Analysis
 
 **Status:** In progress  
-**Tools:** Power BI Desktop, Power Query, DAX, SQL (planned)
+**Tools:** Power BI Desktop, Power Query, DAX, SQL Server (planned)
 
-An end-to-end business intelligence project investigating retail sales performance and profitability. The goal is to turn transaction data into validated KPIs, interactive reporting, and practical recommendations for business stakeholders.
+An end-to-end business intelligence project using the Global Electronics Retailer sample dataset. The project will examine retail sales patterns, product mix, and estimated gross profitability, then present validated insights in an interactive Power BI report.
 
-> **Important:** This repository is a project scaffold. Findings, screenshots, and final KPI values will be added only after the dataset has been loaded, analyzed, and validated.
+> **Metric limitation:** The source has product list prices and unit costs but no transaction-level selling price or discount. Any value calculated from list price is labeled an estimate, not actual realized revenue or profit.
 
 ## Business questions
 
-- How do sales and profit change over time?
-- Which products and categories contribute most to revenue and profit?
-- Which markets or stores perform strongly or weakly?
-- How do online and in-store sales compare, where channel data supports the analysis?
-- What actions could improve profitable growth?
+- How do list-price sales estimates and estimated gross profit change over time?
+- Which products and categories contribute most to estimated sales and profit?
+- How do online and physical-store channels compare?
+- Which markets or product groups warrant further investigation?
+- What actions could improve profitable growth, given the limitations of the available fields?
 
-## Planned workflow
+## Dataset
 
-1. **Data acquisition** — document the dataset source, license/terms, tables, and coverage.
-2. **Data quality** — inspect data types, missing values, duplicate keys, and relationships.
-3. **Transformation** — clean and shape data in Power Query; document material decisions.
-4. **Data model** — build and validate a suitable model, preferably a star schema where the source supports it.
-5. **Measures** — implement and validate sales, profit, margin, order count, and time-intelligence measures against the actual schema.
-6. **Analysis** — investigate trends, product performance, store/country performance, and profitability drivers supported by the data.
-7. **Dashboard** — build an interactive Power BI report with an executive overview and focused analysis pages.
-8. **Communication** — publish screenshots, methodology, verified findings, limitations, and recommendations.
+- **Source:** [Maven Analytics — Global Electronics Retailer](https://mavenanalytics.io/data-playground/global-electronics-retailer)
+- **Sales period:** 2016-01-01 to 2021-02-20
+- **Files:** Sales, Customers, Products, Stores, Exchange_Rates, Data_Dictionary
+
+The provided ZIP has been inspected. Initial profile: Sales has 62,884 rows, Customers 15,266, Products 2,517, Stores 67, Exchange_Rates 11,215, and Data_Dictionary 37. See [the data quality report](docs/data_quality_report.md) and [data dictionary](docs/data_dictionary.md).
+
+The archive is not committed to this repository. Keep local copies of source data and confirm applicable terms before redistributing files.
 
 ## Planned report pages
 
-- **Executive Overview:** headline KPIs and sales trends.
-- **Product Analysis:** category and product comparisons.
-- **Store & Time Analysis:** geography/channel comparisons and trends supported by the source fields.
-
-The final report design will follow the fields available in the downloaded dataset rather than assuming every dimension exists.
+- **Executive Overview:** list-price sales estimate, estimated gross profit, estimated gross margin, quantity, order count, and monthly trends.
+- **Product & Category Analysis:** performance by category, subcategory, brand, and product.
+- **Channel & Market Analysis:** Online versus physical stores, country/state, and trends where supported by the data.
 
 ## Repository structure
 
 ```text
 retail-sales-profitability-analysis/
 ├── README.md
-├── data/
-│   └── README.md
+├── .gitignore
+├── data/README.md
 ├── docs/
-│   └── data_dictionary.md
+│   ├── data_dictionary.md
+│   └── data_quality_report.md
 ├── powerbi/
-│   └── README.md
-├── screenshots/
-│   └── README.md
+│   ├── README.md
+│   └── dax_measures.md
+├── screenshots/README.md
 └── sql/
-    └── README.md
+    ├── README.md
+    └── retail_analysis.sql
 ```
 
-## Dataset
+## Methodology
 
-We plan to use the **Global Electronics Retailer** sample dataset from Maven Analytics.
+1. Profile and clean the source in Power Query.
+2. Build a star-schema-style model with Sales as the fact table and customer, product, store, and date dimensions.
+3. Define explicit DAX measures and reconcile them against independent totals.
+4. Use SQL queries for additional analysis and validation.
+5. Build an interactive Power BI report, capture genuine screenshots, and document recommendations supported by the results.
 
-- [Dataset page](https://mavenanalytics.io/data-playground/global-electronics-retailer)
-- The source describes transactional data for a fictional global electronics retailer, with multiple tables and time-series analysis opportunities. [Dataset details](https://mavenanalytics.io/data-playground/global-electronics-retailer)
+### Metric definitions and caveats
 
-Before analysis, the exact downloaded files, fields, date coverage, row counts, and applicable reuse terms will be checked and documented. The source page identifies the dataset license as Public Domain. Dataset files will still be added only after verifying that the downloaded files correspond to this source.
+- **Estimated list-price sales (USD):** Quantity × product unit list price in USD.
+- **Estimated gross profit (USD):** Quantity × (unit list price − unit cost).
+- **Estimated gross margin:** Estimated gross profit ÷ estimated list-price sales.
 
-## Tools
-
-- **Power BI Desktop** — report authoring and data modeling
-- **Power Query** — data preparation
-- **DAX** — measures and analytical calculations
-- **SQL** — exploratory analysis and validation, once the source format/schema is confirmed
-- **GitHub** — versioned documentation and project assets
-
-## Quality checks
-
-- Reconcile row counts and key totals to the source.
-- Check primary-key uniqueness and relationship cardinality.
-- Validate measures with independent calculations.
-- Document assumptions and limitations.
-- Do not publish unverified business findings.
+These measures are analytical proxies because transaction selling prices and discounts are not provided. Exchange-rate conversion will not be used until the rate direction is confirmed.
 
 ## Current status
 
-- [x] Create public repository and project scaffold
-- [ ] Download and inspect the dataset
-- [ ] Document source tables and fields
-- [ ] Clean and validate data
-- [ ] Build data model and measures
-- [ ] Create Power BI report
-- [ ] Add screenshots and verified findings
-- [ ] Finalize portfolio documentation
+- [x] Create public GitHub repository and project structure
+- [x] Inspect the supplied archive and profile row counts, fields, keys, and missing values
+- [x] Document initial data quality checks and caveats
+- [x] Add starter DAX measures and SQL analysis queries
+- [ ] Import CSVs into Power BI Desktop and clean data types
+- [ ] Build and validate the model and measures
+- [ ] Create report pages and validate interactions
+- [ ] Add genuine dashboard screenshots and findings
+- [ ] Finalize portfolio write-up and recommendations
 
-## How to reproduce
+## Tools
 
-Instructions will be added after the actual data files and model are confirmed. For now, obtain the dataset from the source above and retain the original files locally.
+- Power BI Desktop
+- Power Query
+- DAX
+- SQL Server / T-SQL
+- GitHub
 
 ## Author
 
