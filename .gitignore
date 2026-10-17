@@ -1,0 +1,13 @@
+# Power BI temporary/backup files
+*.tmp
+*.bak
+~$*
+
+# Local data extracts (commit only if redistribution terms allow it)
+data/raw/
+data/processed/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
